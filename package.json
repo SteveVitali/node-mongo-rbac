@@ -1,0 +1,24 @@
+{
+  "name": "node-mongo-rbac",
+  "version": "0.0.1",
+  "description": "Simple role-based access control for node applications using Mongo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SteveVitali/node-mongo-rbac.git"
+  },
+  "keywords": [
+    "node",
+    "mongo",
+    "rbac"
+  ],
+  "author": "Steve Vitali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SteveVitali/node-mongo-rbac/issues"
+  },
+  "homepage": "https://github.com/SteveVitali/node-mongo-rbac"
+}
