@@ -1,6 +1,6 @@
 {
   "name": "node-mongo-rbac",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Simple role-based access control for node applications using Mongo",
   "main": "index.js",
   "scripts": {},
