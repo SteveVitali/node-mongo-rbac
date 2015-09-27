@@ -12,8 +12,7 @@ Inspired by [OptimalBits' node_acl](https://github.com/OptimalBits/node_acl)
 npm install node-mongo-rbac --save
 ```
 
-First, install the `RolePlugin` to your Role model and the
-`UserPlugin` to your User model.
+First, install the `UserPlugin` to your User model.
 
 For example:
 ```js
@@ -27,17 +26,4 @@ var UserSchema = mongoose.Schema({
 UserSchema.plugin(rbac.UserPlugin);
  
 module.exports = mongoose.model('User', UserSchema);
-```
-And
-```js
-var mongoose = require('mongoose');
-var rbac = require('node-mongo-rbac');
- 
-var RoleSchema = mongoose.Schema({
-  // ... Any additional fields
-});
- 
-UserSchema.plugin(rbac.RolePlugin);
- 
-module.exports = mongoose.model('Role', RoleSchema);
 ```
