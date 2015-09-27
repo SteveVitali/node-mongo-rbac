@@ -74,7 +74,7 @@ Add permissions to a particular role
 
 ```js
 @param {String}   roleName    The name of the Role
-@param {Object}   permissions An object describing the permissions
+@param {[Object]} permissions An array of objects of the form [{ <resource>: [<actions>] }]
 @param {Function} callback    Returns err if there was an error
 ```
 
@@ -84,7 +84,7 @@ Revoke permissions from a particular role
 
 ```js
 @param {String}   roleName    The name of the Role
-@param {Object}   permissions An object describing the permissions
+@param {[Object]} permissions An array of objects of the form [{ <resource>: [<actions>] }]
 @param {Function} callback    Returns err if there was an error
 ```
 
@@ -126,7 +126,7 @@ Determine whether user is authorized for action on resource
 @param  {String}     resource The resource path (e.g. 'api/user/*')
 @param  {String}     action   The action on the resource (e.g. 'put')
 @param  {Function}   callback Returns err and isAuthorized
-```js
+```
 
 ### User.addRole(roleName, function(err))
 
@@ -164,17 +164,16 @@ These are the methods on rbac's Role model
 Add an array of permissions objects to the role.
 
 ```js
-@param {[Object]} permissions An array of objects of the form
-                               [{ <resource>: [<actions>] }]
+@param {[Object]} permissions An array of objects of the form [{ <resource>: [<actions>] }]
 @param {Function} callback    Returns err if there was an error
-```js
+```
 
 ### Role.revokePermissions(permissions, function(err))
 
 Revoke an array of permissions objects from the role.
 
 ```js
-@param {[Object]} permissions An array of objects of the form
-                               [{ <resource>: [<actions>] }]
+@param {[Object]} permissions An array of objects of the form [{ <resource>: [<actions>] }]
 @param {Function} callback    Returns err if there was an error
-```js
+```
+
