@@ -57,6 +57,17 @@ app.delete('/api/users/:id', rbac.middleware(1), deleteUser);
 
 ```
 
+### rbac.isAuthorized(userId, resource, action, function(err, isAuthorized))
+
+Check if user with userId is authorized for action on resource.
+
+```js
+@param  {ObjectId}   userId   The id of the requesting User
+@param  {String}     resource The resource path (e.g. 'api/user/*')
+@param  {String}     action   The action on the resource (e.g. 'put')
+@param  {Function}   callback Returns err and isAuthorized
+```
+
 ### rbac.addPermissions(roleName, permissions, function(err))
 
 Add permissions to a particular role
@@ -106,7 +117,18 @@ The Mongoose Role model used by rbac.
 These are the methods added to the User model when 
 using `rbac.UserPlugin`.
 
-### addRole(roleName, function(err))
+### User.isAuthorized(resource, action, function(err, isAuthorized))
+
+Determine whether user is authorized for action on resource
+
+```js
+@param  {ObjectId}   userId   The id of the requesting User
+@param  {String}     resource The resource path (e.g. 'api/user/*')
+@param  {String}     action   The action on the resource (e.g. 'put')
+@param  {Function}   callback Returns err and isAuthorized
+```js
+
+### User.addRole(roleName, function(err))
 
 Add a Role with a particular name to the User
 
@@ -115,7 +137,7 @@ Add a Role with a particular name to the User
 @param {Function} callback Return err if err
 ```
 
-### removeRole(roleName, function(err))
+### User.removeRole(roleName, function(err))
 
 Remove Role with a particular name from the User
 
@@ -124,7 +146,7 @@ Remove Role with a particular name from the User
 @param {Function} callback Return err if err
 ```
 
-### hasRole(roleName, function(err))
+### User.hasRole(roleName, function(err))
 
 Determine whether User has a Role
 
@@ -133,4 +155,26 @@ Determine whether User has a Role
 @param {Function} callback Return err if err
 ```
 
+## Role API
 
+These are the methods on rbac's Role model
+
+### Role.addPermissions(permissions, function(err))
+
+Add an array of permissions objects to the role.
+
+```js
+@param {[Object]} permissions An array of objects of the form
+                               [{ <resource>: [<actions>] }]
+@param {Function} callback    Returns err if there was an error
+```js
+
+### Role.revokePermissions(permissions, function(err))
+
+Revoke an array of permissions objects from the role.
+
+```js
+@param {[Object]} permissions An array of objects of the form
+                               [{ <resource>: [<actions>] }]
+@param {Function} callback    Returns err if there was an error
+```js
