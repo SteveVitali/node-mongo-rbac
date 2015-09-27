@@ -67,7 +67,7 @@ Add permissions to a particular role
 @param {Function} callback    Returns err if there was an error
 ```
 
-### rbac.removePermissions(roleName, permissions, function(err))
+### rbac.revokePermissions(roleName, permissions, function(err))
 
 Revoke permissions from a particular role
 
@@ -83,7 +83,7 @@ Create a new Role object if one does not exist
 
 ```js
 @param  {String}   newRole  The name of the Role
-@param  {Function} callback Returns err if err
+@param  {Function} callback Returns err and the new/pre-existing role
 ```
 
 ### rbac.destroyRole(roleQuery, function(err))
